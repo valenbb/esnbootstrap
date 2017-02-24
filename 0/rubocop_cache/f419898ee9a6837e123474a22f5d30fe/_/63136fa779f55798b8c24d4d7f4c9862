@@ -1,0 +1,1 @@
+[{"severity":"convention","location":{"begin_pos":113,"end_pos":131},"message":"Align the elements of an array literal if they span more than one line.","cop_name":"Style/AlignArray","status":"uncorrected"},{"severity":"convention","location":{"begin_pos":489,"end_pos":490},"message":"1 trailing blank lines detected.","cop_name":"Style/TrailingBlankLines","status":"uncorrected"}]
