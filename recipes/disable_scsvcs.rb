@@ -16,6 +16,7 @@ when 'ubuntu'
 when 'centos' && node['platform_version'].to_f >= 7.0
   execute 'disable_firewall' do
     command "systemctl stop firewalld && systemctl disable firewalld"
+  end
 end
 
 # --------------------------------------------------------------------
