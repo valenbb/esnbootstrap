@@ -4,7 +4,7 @@ maintainer_email 'valenbb@gmail.com'
 license 'all_rights'
 description 'Base bootstrap cookbook'
 long_description 'Base bootstrap cookbook for ESN'
-version '0.1.3'
+version '0.1.4'
 
 depends 'esnspacewalk', '0.1.0'
 

@@ -21,13 +21,10 @@ when 'centos', 'redhat', 'amazon', 'scientific', 'oracle'
       systemctl disable firewalld
       EOH
   end
-<<<<<<< HEAD
-when 'centos' && node['platform_version'].to_f >= 7.0
+when 'centos', 'redhat', 'amazon', 'scientific', 'oracle' 
   execute 'disable_firewall' do
     command "systemctl stop firewalld && systemctl disable firewalld"
   end
-=======
->>>>>>> release/v0.1.3
 end
 
 # --------------------------------------------------------------------
