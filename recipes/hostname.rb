@@ -5,12 +5,12 @@
 # Copyright:: 2017, Andrei Lalla, All Rights Reserved.
 #
 
-hostname = node['hosname']
+hostname = node['hosname']['server_name']
 
-fqdn = node['realm]['sssd_domain']
+fqdn = node['realm']['sssd_domain']
 
 case node['platform']
-when 'centos' && node['platform_version'].to_f >= 7
+when 'centos', 'redhat', 'amazon', 'scientific', 'oracle'
   bash 'set hostname' do
     user 'root'
     code <<-EOH
@@ -18,10 +18,8 @@ when 'centos' && node['platform_version'].to_f >= 7
       EOH
     notifies :reload, 'ohai[reload_hostname]', :immediately
   end
-end
-
-when 'ubuntu' && node['platform_version'].to_f = 16.04
-  bash 'set hostname' do
+when 'ubuntu', 'debian'
+  bash 'set_hostname' do
     code <<-EOH
       sudo hostnamectl set-hostname #{hostname}.#{fqdn}
       EOH
@@ -33,4 +31,3 @@ ohai 'reload_hostname' do
   plugin 'hostname'
   action :nothing
 end
-

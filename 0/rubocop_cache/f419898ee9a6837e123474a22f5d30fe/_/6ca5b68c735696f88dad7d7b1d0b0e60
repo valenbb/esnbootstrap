@@ -1,1 +1,0 @@
-[{"severity":"error","location":{"begin_pos":786,"end_pos":791},"message":"unexpected token tIDENTIFIER\n(Using Ruby 2.1 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)","cop_name":"Syntax","status":"uncorrected"}]
