@@ -8,7 +8,7 @@
 
 data = data_bag_item('realm', 'sssd')
 
-bash 'joining #{data['domain']} domain' do
+bash "joining #{data['domain']} domain" do
   user 'root'
   code <<-EOH
     realm discover #{data['domain']}
@@ -25,7 +25,6 @@ template "node['realm']['sssd_path']" do
 end
 
 service 'sssd' do
-  supports :status => true, :restart => true
+  supports status: 'true', restart: 'true'
   action [:enable, :start]
 end
-

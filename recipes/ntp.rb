@@ -13,7 +13,7 @@ end
 
 service 'chronyd' do
   action :nothing
-  supports :status => true, :start => true, :stop => true, :restart => true
+  supports status: 'true', start: 'true', stop: 'true', restart: 'true'
 end
 
 template '/etc/chrony.conf' do
@@ -23,4 +23,3 @@ template '/etc/chrony.conf' do
   mode '0755'
   notifies :restart, 'service[chronyd]', :immediately
 end
-
