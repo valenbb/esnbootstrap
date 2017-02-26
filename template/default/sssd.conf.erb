@@ -5,7 +5,7 @@ services = nss, pam
 
 [domain/<%= node['realm']['sssd_domain'] %>]
 ad_domain = <%= node['realm']['sssd_domain'] %>
-krb5_realm = <%= node['realm']['sssd-krb5-domain'] %>
+krb5_realm = <%= node['realm']['sssd_domain'].upcase %>
 realmd_tags = manages-system joined-with-samba
 cache_credentials = True
 id_provider = ad

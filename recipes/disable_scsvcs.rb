@@ -8,12 +8,12 @@
 # --------------------------------------------------------------------
 # Disable firewall
 # --------------------------------------------------------------------
-case node[platform]
+case node['platform']
 when 'ubuntu'
   execute 'disable_firewall' do
     command "ufw --disable"
   end
-when 'centos', 'redhat'
+when 'centos' && node['platform_version'].to_f >= 7.0
   execute 'disable_firewall' do
     command "systemctl stop firewalld && systemctl disable firewalld"
 end
@@ -21,7 +21,7 @@ end
 # --------------------------------------------------------------------
 # Disable SELinux
 # --------------------------------------------------------------------
-case node[platform]
+case node['platform']
 when 'ubuntu'
   execute 'disable_apparmor' do
     command "sudo /etc/init.d/apparmor stop && sudo update-rc.d -f apparmor remove"
@@ -35,8 +35,8 @@ end
 # --------------------------------------------------------------------
 # Disable NetworkManager
 # --------------------------------------------------------------------
-case node[platform]
-when 'centos', 'redhat'
+case node['platform']
+when 'centos' && node['platform_version'].to_f >= 7.0
   execute 'disable_netmgr' do
     command "systemctl stop NetworkManager && systemctl disable NetworkManager"
   end
