@@ -5,7 +5,7 @@
 # Copyright:: 2017, Andrei Lalla, All Rights Reserved.
 #
 
-hostname = node['hosname']['server_name']
+hostname = node['hostname']['server_name']
 
 fqdn = node['realm']['sssd_domain']
 
