@@ -2,7 +2,7 @@
 ## Cookbook:: esnbootstrap
 ## Recipe:: default
 ##
-## Copyright:: 2017, Andrei Lalla, All Rights Reserved.
+## Copyright:: 2022, Andrei Lalla, All Rights Reserved.
 ##
 #
 
@@ -22,4 +22,9 @@ template '/etc/chrony.conf' do
   group 'root'
   mode '0755'
   notifies :restart, 'service[chronyd]', :immediately
+end
+
+execute 'chrony_check' do
+  command 'chronyc sources'
+  action :run
 end
