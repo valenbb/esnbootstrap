@@ -12,6 +12,6 @@ when 'ubuntu'
   end
 when 'centos', 'rocky'
   execute 'apt_update' do
-    command 'yum clean all && yum update -y'
+    command 'localectl set-locale LANG=en_US.UTF-8 && yum clean all && yum update -y'
   end
 end
